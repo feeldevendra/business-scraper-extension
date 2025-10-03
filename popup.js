@@ -10,6 +10,7 @@ document.getElementById('startBtn').addEventListener('click', async () => {
   const rows = parseCSV(csvText);
 
   extractedData = [];
+  document.getElementById('results').innerHTML = '';
 
   for (const row of rows) {
     try {
