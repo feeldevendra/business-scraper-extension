@@ -11,7 +11,7 @@ export function downloadCSV(data, filename) {
   const headers = Object.keys(data[0]).join(',');
   const csv = [
     headers,
-    ...data.map(row => Object.values(row).join(','))
+    ...data.map(row => Object.values(row).map(v => `"${v}"`).join(','))
   ].join('\n');
 
   const blob = new Blob([csv], { type: 'text/csv' });
